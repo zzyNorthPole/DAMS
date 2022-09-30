@@ -1,0 +1,445 @@
+.top-bar{
+    width:1920px;
+    height:120px;
+    background:RGBA(37, 142, 129, 1);
+
+}
+
+.top-bar .school-label{
+    position:absolute;
+    left:24px;
+    width:72px;
+    height:120px;
+    display: flex;
+    align-items:center;
+
+}
+
+.top-bar head-title{
+    position:absolute;
+    left:111px;
+    top:32px;
+    bottom:32px;
+    width: 400px;
+    height: 56px;
+    font-size: 40px;
+    font-family: Songti SC;
+    font-weight: 900;
+    line-height: 56px;
+    color: #FFFFFF;
+    opacity: 1;
+
+}
+
+.top-bar current-label{
+    position:absolute;
+    left:1668px;
+    top:35px;
+    bottom:35px;
+    width: 144px;
+    height: 36px;
+    font-size: 36px;
+    font-family: Songti SC;
+    font-weight: 900;
+    line-height: 36px;
+    color: #FFFFFF;
+    opacity: 1;
+    display: inline-block;
+    text-align: center;
+
+}
+
+.top-bar .icon{
+    position:absolute;
+    top:35px;
+    left:1825px;
+    width:50px;
+    height:50px;
+    display: flex;
+    align-items:center;
+}
+
+.main-body
+{
+    width:1920px;
+    height:957px;
+    position: absolute;
+}
+
+.main-body .left-bar{
+    width:231px;
+    height:957px;
+    background: RGBA(247, 247, 247, 1);
+    display: flex;
+    justify-content: center;
+}
+
+.main-body .right-bar
+{
+    position:absolute;
+    top:0px;
+    left:231px;
+    height:957px;
+    width:1344px;
+}
+
+.main-body .right-bar .photo-box
+{
+    position:absolute;
+    left:125px;
+    top:75px;
+    width: 175px;
+    height: 234px;
+    background:RGBA(247, 247, 247, 1);
+    border: 1px solid #EFEFEF;
+    opacity: 1;
+}
+
+.main-body .right-bar name-box
+{
+    position:absolute;
+    top:183px;
+    left:349px;
+    width: 108px;
+    height: 50px;
+    font-size: 36px;
+    font-family: Songti SC;
+    font-weight: 900;
+    line-height: 50px;
+    color: #151515;
+    opacity: 1;
+}
+
+
+.main-body .right-bar school
+{
+    position:absolute;
+    top:246px;
+    left:349px;
+    width: 350  px;
+    height: 40px;
+    font-size: 28px;
+    font-family: Songti SC;
+    font-weight: bold;
+    line-height: 40px;
+    color: #151515;
+    opacity: 1;
+}
+
+.main-body .right-bar header-1
+{
+    position:absolute;
+    top:365px;
+    left:125px;
+    width: 350px;
+    height: 40px;
+    font-size: 28px;
+    font-family: Songti SC;
+    font-weight: bold;
+    line-height: 40px;
+    color: #151515;
+    opacity: 1;
+}
+
+.main-body .right-bar ID-number
+{
+    position:absolute;
+    top:446px;
+    left:125px;
+    width: 72px;
+    height: 33px;
+    font-size: 24px;
+    font-family: Songti SC;
+    font-weight: bold;
+    line-height: 33px;
+    color: #151515;
+    opacity: 1;
+}
+.main-body .right-bar ID-number-bar
+{
+    position:absolute;
+    left:327px;
+    top:446px;
+    width: 146px;
+    height: 33px;
+    font-size: 24px;
+    font-family: Songti SC;
+    font-weight: bold;
+    line-height: 33px;
+    color: #151515;
+    opacity: 1;
+}
+.main-body .right-bar group
+{
+    position:absolute;
+    top:503px;
+    left:125px;
+    width: 48px;
+    height: 33px;
+    font-size: 24px;
+    font-family: Songti SC;
+    font-weight: bold;
+    line-height: 33px;
+    color: #151515;
+    opacity: 1;
+}
+.main-body .right-bar group-bar
+{
+    position:absolute;
+    left:327px;
+    top:503px;
+    width: 216px;
+    height: 33px;
+    font-size: 24px;
+    font-family: Songti SC;
+    font-weight: bold;
+    line-height: 33px;
+    color: #151515;
+    opacity: 1;
+}
+.main-body .right-bar password-1
+{
+    position:absolute;
+    top:561px;
+    left:125px;
+    width: 72px;
+    height: 33px;
+    font-size: 24px;
+    font-family: Songti SC;
+    font-weight: bold;
+    line-height: 33px;
+    color: #151515;
+    opacity: 1;
+}
+.main-body .right-bar password-2
+{
+    position:absolute;
+    top:622px;
+    left:125px;
+    width: 72px;
+    height: 33px;
+    font-size: 24px;
+    font-family: Songti SC;
+    font-weight: bold;
+    line-height: 33px;
+    color: #151515;
+    opacity: 1;
+}
+.main-body .right-bar password-3
+{
+    position:absolute;
+    top:706px;
+    left:125px;
+    width: 96px;
+    height: 33px;
+    font-size: 24px;
+    font-family: Songti SC;
+    font-weight: bold;
+    line-height: 33px;
+    color: #151515;
+    opacity: 1;
+}
+
+.main-body .title-bar{
+    position:absolute;
+    top:300px;
+    height:460px;
+    width:96px;
+   
+}
+
+.main-body .title-bar current-label
+{
+    width: 96px;
+    height: 40px;
+    font-size: 24px;
+    font-family: Songti SC;
+    font-weight: 900;
+    line-height:40px;
+    color: #151515;
+    opacity: 1;
+}
+
+.main-body other-label
+{
+    width: 96px;
+    height: 40px;
+    font-size: 24px;
+    font-family: Songti SC;
+    font-weight: 400;
+    line-height: 40px;
+    color: #747474;
+    opacity: 1;
+}
+
+.main-body .right-bar .input-section1{
+    width: 416px;
+    height:37px;
+    position:absolute;
+    top:559px;
+    left:327px;
+    border: 1px solid rgba(255,255,255,0.5);
+    opacity: 1;
+    border-radius: 8px;
+}
+
+
+.main-body .right-bar .input-section1 label {
+    font-size: 13px;
+    color: rgba(113, 109, 109, 0.9);
+    margin-bottom: 5px;
+} 
+
+.main-body .right-bar .input-section1 input {
+    letter-spacing: 1px;
+    font-size: 33px;
+    box-sizing: border-box;
+    width: 416px;
+    height: 37px;
+    border-radius: 5px;
+    border: 1px solid rgba(107, 105, 105, 0.166);
+    background: rgba(0,0,0,0);
+    outline: none;
+    padding: 0 12px;
+    color: rgba(121, 117, 117, 0.9);
+    transition: 0.2s;
+} 
+
+.main-body .right-bar .input-section1:focus {
+    border: 1px solid rgba(107, 105, 105, 0.166);
+} 
+
+
+.main-body .right-bar .input-section2{
+    width: 416px;
+    height:37px;
+    position:absolute;
+    top:620px;
+    left:327px;
+    border: 1px solid rgba(255,255,255,0.5);
+    opacity: 1;
+    border-radius: 8px;
+}
+
+
+.main-body .right-bar .input-section2 label {
+    font-size: 13px;
+    color: rgba(113, 109, 109, 0.9);
+    margin-bottom: 5px;
+} 
+
+.main-body .right-bar .input-section2 input {
+    letter-spacing: 1px;
+    font-size: 33px;
+    box-sizing: border-box;
+    width: 416px;
+    height: 37px;
+    border-radius: 5px;
+    border: 1px solid rgba(107, 105, 105, 0.166);
+    background: rgba(0,0,0,0);
+    outline: none;
+    padding: 0 12px;
+    color: rgba(121, 117, 117, 0.9);
+    transition: 0.2s;
+} 
+
+.main-body .right-bar .input-section2:focus {
+    border: 1px solid rgba(107, 105, 105, 0.166);
+} 
+
+
+.main-body .right-bar .input-section3{
+    width: 416px;
+    height:37px;
+    position:absolute;
+    top:704px;
+    left:327px;
+    border: 1px solid rgba(255,255,255,0.5);
+    opacity: 1;
+    border-radius: 8px;
+}
+
+
+.main-body .right-bar .input-section3 label {
+    font-size: 13px;
+    color: rgba(113, 109, 109, 0.9);
+    margin-bottom: 5px;
+} 
+
+.main-body .right-bar .input-section3 input {
+    letter-spacing: 1px;
+    font-size: 33px;
+    box-sizing: border-box;
+    width: 416px;
+    height: 37px;
+    border-radius: 5px;
+    border: 1px solid rgba(107, 105, 105, 0.166);
+    background: rgba(0,0,0,0);
+    outline: none;
+    padding: 0 12px;
+    color: rgba(121, 117, 117, 0.9);
+    transition: 0.2s;
+} 
+
+.main-body .right-bar .input-section3:focus {
+    border: 1px solid rgba(107, 105, 105, 0.166);
+} 
+
+.main-body .right-bar hint
+{
+    position:absolute;
+    top:665px;
+    left:337px;
+    width: 356px;
+    height: 24px;
+    font-size: 17px;
+    font-family: Songti SC;
+    font-weight: bold;
+    line-height: 24px;
+    color: #151515;
+    opacity: 1;
+}
+
+.main-body .right-bar .btn-box{
+    position:absolute;
+    top:85px;
+    left:1410px;
+    width: 300px;
+    height:50px;
+    display: flex;
+    flex-direction: row;
+    align-items: start;
+}
+
+
+.main-body .right-bar .btn-box > button {
+    width: 40px;
+    height: 28px;
+    font-size: 20px;
+    font-family: Songti SC;
+    font-weight: 900;
+    line-height: 28px;
+    color: #FFFFFF;
+}
+
+.main-body .right-bar .btn-box > button:nth-of-type(1){
+    width: 76px;
+    height: 47px;
+    background: rgba(255,161,135,0.39);
+    border: 1px rgba(255,161,135,0.39);
+    border-radius: 16px;
+}
+
+.main-body .right-bar .btn-box > button:nth-of-type(2){
+    width: 76px;
+    height: 47px;
+    background: RGBA(2, 149, 255, 1);
+    border: 1px RGBA(2, 149, 255, 1);
+    border-radius: 16px;
+    margin-left: 40px;
+}
+
+.main-body .right-bar .btn-box > button:hover {
+    border: 1px solid rgba(18,97,102,0.39);
+    background: rgba(18,97,102,0.39);
+}
