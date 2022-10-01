@@ -1,0 +1,11 @@
+#grade_ex{
+    color: rgba(21, 21, 21, 1);
+    width: 32pt;
+    height: 16pt;
+    font-size: 15pt;
+    font-weight: 400;
+    margin-left: 20pt;
+    margin-top: 5pt;
+    text-align: center;
+    float: left;
+}

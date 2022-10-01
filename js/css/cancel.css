@@ -1,0 +1,9 @@
+#cancel{
+    float: left;
+    background-color: rgba(255, 161, 135, 1);
+    border-radius: 12pt;
+    height: 32pt;
+    width: 48pt;
+    margin-left: 10pt;
+    margin-top: 10pt;
+}

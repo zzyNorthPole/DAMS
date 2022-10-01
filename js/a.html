@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html>
+    <meta charset="utf-8">
+    <head>
+    </head>
+
+    <body>
+        <div id="container" style="width: 1081pt; height: auto; margin-left: -7pt; margin-top: -10pt;">
+            <div id="header" style="width: 1081pt; height: 45pt; background-color: #258E81; padding-top: 0pt; padding-left: 0pt;">
+                <img src="png/whu_logo.png" id="whu_logo">
+                    <link href="./css/whu_logo.css" rel="stylesheet" type="text/css"/>
+                <text id="dams">
+                    <link href="./css/dams.css" rel="stylesheet" type="text/css"/>
+                    武汉大学宿舍管理系统
+                </text>
+                <img src="png/self_logo.png" id="self_logo">
+                    <link href="./css/self_logo.css" rel="stylesheet" type="text/css"/>
+                <text id="self_manage">
+                    <link href="./css/self_manage.css" rel="stylesheet" type="text/css"/>
+                    个人管理
+                </text>
+            </div>
+            <div id="menu" style="background-color: rgba(183, 183, 183, 0.1); height: 91.7vh; width: 100pt; float: left;">
+                <text id="first_page">
+                    首页
+                    <link href="./css/first_page.css" rel="stylesheet" type="text/css"/>
+                    <script src="js/first_page.js"></script>
+                </text>
+                <text id="dm">
+                    宿舍管理
+                    <link href="./css/dm.css" rel="stylesheet" type="text/css"/>
+                    <script src="js/dm.js"></script>
+                </text>
+                <text id="bm">
+                    楼栋管理
+                    <link href="./css/bm.css" rel="stylesheet" type="text/css"/>
+                    <script src="js/bm.js"></script>
+                </text>
+                <text id="sm">
+                    学生管理
+                    <link href="./css/sm.css" rel="stylesheet" type="text/css"/>
+                    <script src="js/sm.js"></script>
+                </text>
+                <text id="pm">
+                    人员管理
+                    <link href="./css/pm.css" rel="stylesheet" type="text/css"/>
+                    <script src="js/pm.js"></script>
+                </text>
+                <text id="rm">
+                    维修管理
+                    <link href="./css/rm.css" rel="stylesheet" type="text/css"/>
+                    <script src="js/rm.js"></script>
+                </text>
+            </div>
+            <div id="left_part" style="width: 270pt; height: 91.7vh; margin-left: 10pt; margin-top: 0pt; float: left;">
+                <div id="square_div" style="width: 270pt; height: 20pt; margin-left: 4pt; margin-top: 0pt;">
+                    <text id="square">
+                        <link href="./css/square.css" rel="stylesheet" type="text/css"/>
+                        区域
+                    </text>
+                </div>
+                <div id="down_text_and_edit" style="width: 270pt; height: 32pt; margin-left: 4pt; margin-top: 20pt;">
+                    <div id="square_down">
+                        <script src="js/down_text.js"></script>
+                        <div id="down_bottom_square" class="down_bottom"></div>
+                        <div id="down_content_square" class="down_content">
+                            <div class="down_txt" style="display: block;"></div>
+                            <hr style="width: 220pt; margin-left: 10pt; margin-top: 0pt; color: rgba(217, 217, 217, 0.3)"/>
+                            <div class="down_txt_ex" style="display: block;">
+                                梅园3舍
+                            </div>
+                            <hr style="width: 220pt; margin-left: 10pt; margin-top: 0pt; color: rgba(217, 217, 217, 0.3)"/>
+                            <div class="down_txt_ex" style="display: block;">
+                                梅园6舍
+                            </div>
+                            <hr style="width: 220pt; margin-left: 10pt; margin-top: 0pt; color: rgba(217, 217, 217, 0.3)"/>
+                        </div>
+                    </div>
+                </div>
+                <hr style="width: 237pt; margin-left: 16pt; margin-top: 30pt; color: rgba(217, 217, 217, 0.3)"/>
+                <div id="building_situation" style="width: 240pt; height: 100pt; margin-left: 17pt; margin-top: 20pt; background-color: rgba(250, 250, 250, 1); border-radius: 16pt; box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);">
+                </div>
+
+                <div id="square_div" style="width: 270pt; height: 20pt; margin-left: 4pt; margin-top: 0pt;">
+                    <text id="square">
+                        <link href="./css/square.css" rel="stylesheet" type="text/css"/>
+                        宿舍楼
+                    </text>
+                </div>
+                <div id="down_text_and_edit" style="width: 270pt; height: 32pt; margin-left: 4pt; margin-top: 20pt;">
+                    <link href="./css/down_text.css" rel="stylesheet" type="text/css"/>
+                    <div>
+                        <div class="down_bottom"></div>
+                        <div class="down_content"></div>
+                    </div>
+                </div>
+                <hr style="width: 237pt; margin-left: 16pt; margin-top: 30pt; color: rgba(217, 217, 217, 0.3)"/>
+                <div id="building_situation" style="width: 240pt; height: 100pt; margin-left: 17pt; margin-top: 20pt; background-color: rgba(250, 250, 250, 1); border-radius: 16pt; box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);">
+                </div>
+            </div>
+
+            <div id="right_part_mask" style="width: 560pt; height: 91.7vh; margin-left: 10pt; margin-top: 0pt; float: left; background-color: rgba(250, 250, 250, 0.1); display: none;">
+                <div style="width: 560pt; height: 300pt; margin-left: 60pt; margin-top: 120pt; float: left; background-color: rgba(250, 250, 250, 0.94); border-radius: 16pt; box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);">
+                    <div style="width: 560pt; height: 40pt; margin-left: 0pt; margin-top: 0pt;">
+                        <div id="cancel">
+                            <script src="js/cancel.js"></script>
+                            <link href="./css/cancel.css" rel="stylesheet" type="text/css"/>
+                            <text style="color: rgba(255, 255, 255, 1); font-size: 12pt; float: left; margin-left: 11.5pt; margin-top: 8pt;">
+                                取消
+                            </text>
+                        </div>
+                        <text id="domitory_building_display">
+                            <link href="./css/domitory_building_display.css" rel="stylesheet" type="text/css"/>
+                            文理学部梅园 梅园3舍 101
+                        </text>
+                        <div id="finish">
+                            <script src="js/finish.js"></script>
+                            <link href="./css/finish.css" rel="stylesheet" type="text/css"/>
+                            <text style="color: rgba(255, 255, 255, 1); font-size: 12pt; float: left; margin-left: 11.5pt; margin-top: 8pt;">
+                                完成
+                            </text>
+                        </div>
+                    </div>
+                    <div id="first_line_mask" style="width: 560pt; height: 20pt; margin-left: 0pt; margin-top: 5pt;">
+                        <text id="bed">
+                            <link href="./css/bed.css" rel="stylesheet" type="text/css"/>
+                            床位
+                        </text>
+                        <text id="name">
+                            <link href="./css/name.css" rel="stylesheet" type="text/css"/>
+                            姓名
+                        </text>
+                        <text id="school">
+                            <link href="./css/school.css" rel="stylesheet" type="text/css"/>
+                            学院
+                        </text>
+                        <text id="grade">
+                            <link href="./css/grade.css" rel="stylesheet" type="text/css"/>
+                            年级
+                        </text>
+                        <text id="status">
+                            <link href="./css/status.css" rel="stylesheet" type="text/css"/>
+                            状态
+                        </text>
+                        <text id="op">
+                            <link href="./css/op.css" rel="stylesheet" type="text/css"/>
+                            操作
+                        </text>
+                    </div>
+                    <div id="second_line_mask" style="width: 560pt; height: 20pt; margin-left: 0pt; margin-top: 5pt;">
+                        <text id="bed">
+                            <link href="./css/bed.css" rel="stylesheet" type="text/css"/>
+                            1
+                        </text>
+                        <text id="name_ex">
+                            <link href="./css/name_ex.css" rel="stylesheet" type="text/css"/>
+                            hhh
+                        </text>
+                        <text id="school_ex">
+                            <link href="./css/school_ex.css" rel="stylesheet" type="text/css"/>
+                            材料与控制学院
+                        </text>
+                        <text id="grade_ex">
+                            <link href="./css/grade_ex.css" rel="stylesheet" type="text/css"/>
+                            2020
+                        </text>
+                        <text id="status_ex">
+                            <link href="./css/status_ex.css" rel="stylesheet" type="text/css"/>
+                            已入住
+                        </text>
+                        <text id="op_ex">
+                            <link href="./css/op_ex.css" rel="stylesheet" type="text/css"/>
+                            <script src="js/op_ex.js"></script>
+                            退宿
+                        </text>
+                    </div>
+                </div>
+            </div>
+
+            <div id="right_part" style="width: 680pt; height: 91.7vh; margin-left: 10pt; margin-top: 0pt; float: left; background-color: aliceblue; display: block;">
+                <div id="first_line" style="width: 680pt; height: 20pt; margin-left: 4pt; margin-top: 0pt;">
+                    <text id="domitory">
+                        <link href="./css/domitory.css" rel="stylesheet" type="text/css"/>
+                        宿舍
+                    </text>
+                    <text id="live_in_person_num">
+                        <link href="./css/live_in_person_num.css" rel="stylesheet" type="text/css"/>
+                        入住人数
+                    </text>
+                    <text id="domitory_leader">
+                        <link href="./css/domitory_leader.css" rel="stylesheet" type="text/css"/>
+                        宿舍长
+                    </text>
+                    <text id="domitory_mem">
+                        <link href="./css/domitory_mem.css" rel="stylesheet" type="text/css"/>
+                        宿舍成员
+                    </text>
+                    <text id="domitory_manage">
+                        <link href="./css/domitory_manage.css" rel="stylesheet" type="text/css"/>
+                        管理
+                    </text>
+                </div>
+                <hr style="width: 630pt; margin-left: 16pt; margin-top: 30pt; color: rgba(217, 217, 217, 0.3)"/>
+
+                <div id="second_line" style="width: 680pt; height: 20pt; margin-left: 4pt; margin-top: -10pt;">
+                    <text id="domitory_ex">
+                        <link href="./css/domitory_ex.css" rel="stylesheet" type="text/css"/>
+                        101
+                    </text>
+                    <text id="live_in_person_num_ex">
+                        <link href="./css/live_in_person_num_ex.css" rel="stylesheet" type="text/css"/>
+                        3/4
+                    </text>
+                    <text id="domitory_leader_ex">
+                        <link href="./css/domitory_leader_ex.css" rel="stylesheet" type="text/css"/>
+                        hhh
+                    </text>
+                    <text id="domitory_mem_ex">
+                        <link href="./css/domitory_mem_ex.css" rel="stylesheet" type="text/css"/>
+                        hhh/hhh/hhh
+                    </text>
+                    <text id="domitory_manage_ex">
+                        <link href="./css/domitory_manage_ex.css" rel="stylesheet" type="text/css"/>
+                        <script src="js/domitory_manage_ex.js"></script>
+                        管理
+                    </text>
+                </div>
+                <hr style="width: 630pt; margin-left: 16pt; margin-top: 25pt; color: rgba(217, 217, 217, 0.3)"/>
+            </div>
+        </div>
+    </body>
+</html>
