@@ -1,7 +1,7 @@
 .down_bottom{
     background-color: rgba(255, 255, 255, 1);
-    border-radius: 14pt;
-    border-width: 1px;
+    border-radius: 10pt;
+    border-width: 0.1px;
     border-style: solid;
     border-color: rgba(183, 183, 183, 1);
     text-align: center;
@@ -15,8 +15,8 @@
 }
 .down_content{
     background-color: rgba(255, 255, 255, 1);
-    border-radius: 14pt;
-    border-width: 1px;
+    border-radius: 10pt;
+    border-width: 0.1px;
     border-style: solid;
     border-color: rgba(183, 183, 183, 1);
     text-align: center;
@@ -25,6 +25,7 @@
     width: 240pt;
     margin-left: 13pt;
     margin-top: 15pt;
+    overflow-y: scroll;
     display: none;
 }
 .down_txt{
@@ -37,13 +38,23 @@
     margin-top: 5pt;
     display: block;
 }
-.down_txt_ex{
+.down_txt_square_ex{
     text-align: center;
     font-size: 14pt;
     float: left;
     height: 32pt;
     width: 240pt;
     margin-left: 0pt;
-    margin-top: -2pt;
+    margin-top: 2pt;
+    display: block;
+}
+.down_txt_building_ex{
+    text-align: center;
+    font-size: 14pt;
+    float: left;
+    height: 32pt;
+    width: 240pt;
+    margin-left: 0pt;
+    margin-top: 2pt;
     display: block;
 }
