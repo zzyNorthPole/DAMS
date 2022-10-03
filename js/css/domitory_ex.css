@@ -1,10 +1,10 @@
-#domitory_ex{
+.domitory_ex{
     color: rgba(21, 21, 21, 1);
     width: 32pt;
     height: 16pt;
     font-size: 16pt;
-    margin-left: 16pt;
-    padding-top: 16pt;
-    text-align: center;
+    padding-left: 4pt;
+    padding-top: 4pt;
+    text-align: left;
     float: left;
 }
