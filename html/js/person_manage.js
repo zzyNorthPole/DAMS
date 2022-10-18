@@ -1,14 +1,14 @@
 // var main_page = document.getElementById("person_manage_lines")
 // var xmlhttp = window.XMLHttpRequest ? new XMLHttpRequest() : new ActiveXObject("Microsoft.XMLHTTP")
 // xmlhttp.onreadystatechange = function() {
-// 	if (xmlhttp.readyState==4 && xmlhttp.status==200) {
+//     if (xmlhttp.readyState==4 && xmlhttp.status==200) {
 // 	    var text = xmlhttp.responseText
 //         var obj = JSON.parse(text)
 //         var str = "";
 //         for (var i in obj) {
 //             let tmp = "<div style=\"width: 10vw;height: 5vh;margin-left: 0vw;font-size: 2.7vmin;float: left;\">"
 //             + "<div style=\"margin-left: 2vw;margin-right: 0.5vw;margin-top: 0.5vh;margin-bottom: 0.5vh;text-align: left;\">"
-//             + text[i]["name"]
+//             +  text[i]["name"]
 //             + "</div>"
 //             + "</div>"
 //             + "<div style=\"width: 10vw;height: 5vh;margin-left: 0vw;font-size: 2.7vmin;float: left;\">"
@@ -23,7 +23,7 @@
 //             + "</div>"
 //             + "<div style=\"width: 20vw;height: 5vh;margin-left: 0vw;font-size: 2.7vmin;float: left;\">"
 //             + "<div style=\"margin-left: 2vw;margin-right: 0.5vw;margin-top: 0.5vh;margin-bottom: 0.5vh;text-align: left;\">"
-//             + ""
+//             + text[i]["department"]
 //             + "</div>"
 //             + "</div>"
 //             + "<div style=\"width: 15vw;height: 5vh;margin-left: 0vw;font-size: 2.7vmin;float: left;\">"
@@ -33,17 +33,17 @@
 //             + "</div>"
 //             + "<div style=\"width: 10vw;height: 5vh;margin-left: 0vw;font-size: 2.7vmin;float: left;\">"
 //             + "<div style=\"margin-left: 2vw;margin-right: 0.5vw;margin-top: 0.5vh;margin-bottom: 0.5vh;text-align: left;\">"
-//             + text[i]["checked_in"]
+//             + text[i]["check_in"]
 //             + "</div>"
 //             + "</div>"
-//             + "<div style=\"width: 10vw;height: 5vh;margin-left: 0vw;font-size: 2.7vmin;float: left;\">"
+//             + "<div class=\"person_manage_look\" style=\"width: 10vw;height: 5vh;margin-left: 0vw;font-size: 2.7vmin;float: left;\">"
 //             + "<div style=\"margin-left: 2vw;margin-right: 0.5vw;margin-top: 0.5vh;margin-bottom: 0.5vh;text-align: left;\">"
 //             + "查看"
 //             + "</div>"
 //             + "</div>"
 //             str += tmp             
 //         }
-//         document.getElementById("dormitory_manage_right_part_lines").innerHTML = str
+//         document.getElementById("person_manage_lines").innerHTML = str
 //     }
 // }
 // xmlhttp.open("get", "http://47.97.18.183:8002/user", true)
