@@ -216,19 +216,19 @@ building_manage_add_finish.onclick = function() {
         }
     }
     xmlhttp_add_building.open("post", "http://47.97.18.183:8002/building", true)
-    xmlhttp_add_building.setRequestHeader("Content-Type", "application/x-www-form-urlencoded")
+    xmlhttp_add_building.setRequestHeader("Content-Type", "application/json")
     var building_manage_add_area = document.getElementById("building_manage_add_area").value
     var building_manage_add_label = document.getElementById("building_manage_add_label").value
     var building_manage_add_sex = document.getElementById("building_manage_add_sex").value
     var building_manage_add_comment = document.getElementById("building_manage_add_comment").value
-    var tmp = "{"
-    +"\"area\":" +"\"" +building_manage_add_area +"\","
-    +"\"comment\":" +"\"" +building_manage_add_comment +"\","
-    +"\"label\":" +"\"" +building_manage_add_label +"\","
-    +"\"sex\":" +"\"" +building_manage_add_sex +"\""
-    +"}";
-    console.log(tmp)
-    xmlhttp_add_building.send(tmp);
+    var tmp = {
+        "area": building_manage_add_area,
+        "label": building_manage_add_label,
+        "sex": building_manage_add_sex,
+        "comment": building_manage_add_comment
+    }
+    console.log(JSON.stringify(tmp))
+    xmlhttp_add_building.send(JSON.stringify(tmp));
 }
 
 var building_manage_add_cancel = document.getElementById("building_manage_add_cancel");
