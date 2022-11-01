@@ -183,13 +183,30 @@ xmlhttp1.onreadystatechange = function() {
                         +"查看"
                         +"</div>"+"</div>"
                         +"<div style=\"width: 10vw;height: 5vh;margin-left: 0vw;font-size: 2.7vmin;float: left;\">"
-                        +"<div class=\"manage_color\" style=\"margin-left: 2vw;margin-right: 0.5vw;margin-top: 0.5vh;margin-bottom: 0.5vh;text-align: left;color:rgba(2, 149, 255, 1)\">"
+                        +"<div class=\"manage_color building_manage_delete\" style=\"margin-left: 2vw;margin-right: 0.5vw;margin-top: 0.5vh;margin-bottom: 0.5vh;text-align: left;color:rgba(2, 149, 255, 1)\">"
                         +"删除"
+                        +"<div class=\"uuid\" style=\"display: none\">"
+                        +obj[j]["uuid"]
+                        +"</div>"
                         +"</div>"+"</div>";
                         building_manage_lines_str += tmp;
                     }
                 }
                 document.getElementById("building_manage_lines").innerHTML = building_manage_lines_str;
+                var building_manage_delete = document.getElementsByClassName("building_manage_delete");
+                for (let j in building_manage_delete) {
+                    let tmp = building_manage_delete[j];
+                    tmp.onclick = function() {
+                        var xmlhttp_delete_building = window.XMLHttpRequest ? new XMLHttpRequest() : new ActiveXObject("Microsoft.XMLHTTP");
+                        xmlhttp_delete_building.onreadystatechange = function() {
+                            if (xmlhttp_delete_building.readyState == 4 && xmlhttp_delete_building.status == 200) {
+                                location.reload();
+                            }  
+                        }
+                        xmlhttp_delete_building.open("delete", "http://47.97.18.183:8002/building/"+tmp.getElementsByClassName("uuid")[0].innerHTML, true);
+                        xmlhttp_delete_building.send();
+                    }
+                }
             }
         }
     }
