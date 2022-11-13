@@ -1,4 +1,5 @@
-var in_page = document.getElementById("loginbu")
+//TODO：密码重置接口如何获取usid
+// var in_page = document.getElementById("loginbu")
 // var res = document.getElementById("result")
 var xmlhttp = window.XMLHttpRequest ? new XMLHttpRequest() : new ActiveXObject("Microsoft.XMLHTTP")
 xmlhttp.onreadystatechange = function() {
@@ -14,13 +15,11 @@ xmlhttp.onreadystatechange = function() {
 }
 
 // in_page.onclick = function(){
-function log(){
-    document.getElementById("result").innerHTML="ppp"
+function reset(){
+    // document.getElementById("result").innerHTML="ppp"
     var usid = document.getElementById("userid")
-    var psid = document.getElementById("passid")
-    xmlhttp.open("post", "http://47.97.18.183:8002/identity/login", true)
+    xmlhttp.open("post", "/user/"+usid+"/reset-password", true)
     xmlhttp.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded')
-    xmlhttp.send('password='+usid+'&username='+psid);
-    res = "ppp"
-    document.getElementById("result").innerText="结束"
+    xmlhttp.send('new password=a1234567');
+    // document.getElementById("result").innerText="结束"
 }

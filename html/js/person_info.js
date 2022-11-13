@@ -1,4 +1,5 @@
-var in_page = document.getElementById("loginbu")
+//获取usid并返回
+var info_page = document.getElementById("loginbu")
 // var res = document.getElementById("result")
 var xmlhttp = window.XMLHttpRequest ? new XMLHttpRequest() : new ActiveXObject("Microsoft.XMLHTTP")
 xmlhttp.onreadystatechange = function() {
@@ -13,14 +14,14 @@ xmlhttp.onreadystatechange = function() {
         document.getElementById("result").innerHTML="登录失败"
 }
 
-// in_page.onclick = function(){
+// info_page.onclick = function(){
 function log(){
     document.getElementById("result").innerHTML="ppp"
     var usid = document.getElementById("userid")
     var psid = document.getElementById("passid")
-    xmlhttp.open("post", "http://47.97.18.183:8002/identity/login", true)
+    xmlhttp.open("get", "http://47.97.18.183:8002/user/test", true)
     xmlhttp.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded')
-    xmlhttp.send('password='+usid+'&username='+psid);
+    xmlhttp.send();
     res = "ppp"
     document.getElementById("result").innerText="结束"
 }
