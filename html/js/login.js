@@ -1,14 +1,16 @@
-var in_page = document.getElementById("loginbu")
+var in_page = document.getElementById("login_buttom")
 // var res = document.getElementById("result")
 var xmlhttp = window.XMLHttpRequest ? new XMLHttpRequest() : new ActiveXObject("Microsoft.XMLHTTP")
 xmlhttp.onreadystatechange = function() {
-	if (xmlhttp.readyState==4 && xmlhttp.status==200) {
-	    document.getElementById("result").innerHTML="登录成功"
-        window.location.href = 'a.html'
+	if (xmlhttp.readyState == 4) {
+        if (xmlhttp.status == 200) {
+            document.getElementById("result").innerHTML = "登录成功";
+            window.location.href = 'a.html';
+        }
+        else {
+            document.getElementById("result").innerHTML = "登录失败";
+        }
     }
-    // else if(xmlhttp.readyState==4 && xmlhttp.status==401){
-    //     document.getElementById("result").text="登录成功"
-    // }
     else
         document.getElementById("result").innerHTML="登录失败";
 }
@@ -46,8 +48,17 @@ function log(){
         "password": psid
     }
     // post("http://47.97.18.183:8002/auth/login", wk, '"password"='+usid+'&"username"='+'psid');
-    // post("http://47.97.18.183:8002/admin/user", person_manage_add_form_clear, JSON.stringify(tmp));
     post("http://47.97.18.183:8002/auth/login", wk, JSON.stringify(user_info));
     // res = "ppp"
     // document.getElementById("result").innerText="登录完毕"
+    let tmp = {
+        "username": document.getElementById("userid").value,
+        "password": document.getElementById("passid").value
+    };
+    xmlhttp.open("post", "http://47.97.18.183:8002/auth/login", true)
+    xmlhttp.setRequestHeader("Content-Type", "application/json")
+    xmlhttp.withCredentials = true;
+    xmlhttp.send(JSON.stringify(tmp));
+    res = "ppp"
+    document.getElementById("result").innerText="结束"
 }
