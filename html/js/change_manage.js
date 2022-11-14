@@ -5,7 +5,7 @@ function change_manage_put() {
 }
 
 function change_manage_manage(obj, uuid) {
-    if (obj["state"] == "未同意") {
+    if (obj["state"] == "已提交申请") {
         let tmp = {
             "new_dormitory_label": obj["new_dormitory_label"],
             "original_dormitory_label": obj["original_dormitory_label"],
@@ -77,7 +77,7 @@ function change_information_update(obj) {
         var tmp_manage_child = document.createElement('div');
         tmp_manage_child.style = "margin-left: 2vw;margin-right: 0.5vw;margin-top: 0.5vh;margin-bottom: 0.5vh;text-align: left;color:rgba(2, 149, 255, 1);";
         tmp_manage_child.classList.add("change_manage_manage");
-        tmp_manage_child.innerText = "管理";
+        tmp_manage_child.innerText = "批准";
         tmp_manage.appendChild(tmp_manage_child);
         tmp_line_element.appendChild(tmp_manage);
 
