@@ -2,6 +2,62 @@ var full_student_information;
 function person_delete() {
     location.reload();
 }
+
+function query_person_manage_favorite_information_game(text) {
+    if (text == "是") return 1;
+    else return 0;
+}
+function query_person_manage_favorite_information_time(text) {
+    if (text == "22:00之前") return 1;
+    else if (text == "22:00-23:00") return 2;
+    else if (text == "23:00-0:00") return 3;
+    else if (text == "0:00-1:00") return 4;
+    else if (text == "1:00之后") return 5;
+}
+function person_manage_mask_update(obj) {
+    document.getElementById("person_manage_main_information_name").innerText = obj["name"];
+    document.getElementById("person_manage_main_information_department").innerText = obj["department"];
+    document.getElementById("person_manage_basic_information_username").innerText = obj["username"];
+    document.getElementById("person_manage_basic_information_department").innerText = obj["department"];
+    let tmp_password = {
+        "new_password": "123456"
+    };
+    document.getElementById("person_manage_basic_information_reset").onclick = function() {
+        post("http://47.97.18.183:8002/admin/user/"+obj["username"]+"/reset-password", function(){location.reload();}, JSON.stringify(tmp_password));
+    }
+
+    var person_manage_favorite_information_bottom = document.getElementById("person_manage_favorite_information_bottom");
+    var person_manage_favorite_information_content_txt = document.getElementById("person_manage_favorite_information_content").getElementsByClassName("down_content_txt");
+    var person_manage_favorite_information_game = document.getElementById("person_manage_favorite_information_game");
+    var person_manage_favorite_information_temprature = document.getElementById("person_manage_favorite_information_temprature");
+    person_manage_favorite_information_bottom.onclick = function() {
+        person_manage_favorite_information_bottom.style.display = "none";
+        document.getElementById("person_manage_favorite_information_content").style.display = "block";
+        person_manage_favorite_information_game.style.display = "none";
+        person_manage_favorite_information_temprature.style.display = "none";
+    }
+    for (let i in person_manage_favorite_information_content_txt) {
+        let tmp = person_manage_favorite_information_content_txt[i];
+        tmp.onclick = function() {
+            person_manage_favorite_information_bottom.innerText = tmp.innerText;
+            person_manage_favorite_information_game.style.display = "block";
+            person_manage_favorite_information_temprature.style.display = "block";
+        }
+    }
+
+    let person_manage_mask_finish = document.getElementById("person_manage_mask_finish")
+    person_manage_mask_finish.onclick = function() {
+        let tmp_favorite = {
+            "ac_temperature": person_manage_favorite_information_temprature.value,
+            "gaming": query_person_manage_favorite_information_game(person_manage_favorite_information_game.value),
+            "sleeping_time": query_person_manage_favorite_information_time(person_manage_favorite_information_bottom.innerText)
+        };
+        post("http://47.97.18.183:8002/admin/user/"+obj["username"]+"/preference", function(){location.reload();}, JSON.stringify(tmp_favorite));
+        document.getElementById("person_manage_right_part").style.display = "block";
+        document.getElementById("person_manage_right_part_mask").style.display = "none";
+    }
+}
+
 function students_information_update(obj, flag) {
     if (flag) full_student_information = obj;
     var tmp_line_element = document.getElementById("person_manage_lines");
@@ -52,8 +108,9 @@ function students_information_update(obj, flag) {
         tmp_line_element.appendChild(tmp_delete);
     }
 
+    var tmp_person_manage_username = tmp_line_element.getElementsByClassName("person_manage_username");
     var tmp_person_manage_look = tmp_line_element.getElementsByClassName("person_manage_look");
-    for (var i in tmp_person_manage_look) {
+    for (let i in tmp_person_manage_look) {
         let tmp = tmp_person_manage_look[i];
         tmp.onmouseover = function() {
             tmp.style.fontWeight = 600;
@@ -62,12 +119,12 @@ function students_information_update(obj, flag) {
             tmp.style.fontWeight = 400;
         }
         tmp.onclick = function() {
+            get("http://47.97.18.183:8002/admin/user/"+tmp_person_manage_username[i].innerText, person_manage_mask_update);
             document.getElementById("person_manage_right_part").style.display = "none"
             document.getElementById("person_manage_right_part_mask").style.display = "block"
         }
     }
 
-    var tmp_person_manage_username = tmp_line_element.getElementsByClassName("person_manage_username");
     var tmp_person_manage_delete = tmp_line_element.getElementsByClassName("person_manage_delete");
     for (let i in tmp_person_manage_delete) {
         let tmp = tmp_person_manage_delete[i];

@@ -156,6 +156,7 @@ function repair_manage_add_form_clear() {
     document.getElementById("repair_manage_add_category").value = "";
     document.getElementById("repair_manage_add_comment").value = "";
     document.getElementById("repair_manage_add_state").value = "";
+    document.getElementById("repair_manage_add_building_label").value = "";
     location.reload();
 }
 

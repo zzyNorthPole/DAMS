@@ -11,8 +11,6 @@ xmlhttp.onreadystatechange = function() {
             document.getElementById("result").innerHTML = "登录失败";
         }
     }
-    else
-        document.getElementById("result").innerHTML="登录失败";
 }
 
 function wk()
@@ -36,19 +34,14 @@ function post(url, Work, form) {
     xml_http.send(form);
 }
 
-// in_page.onclick = function(){
-function log(){
+function login(){
     document.getElementById("result").innerHTML="ppp"
     var usid = document.getElementById("userid").value
     var psid = document.getElementById("passid").value
-    // xmlhttp.open("post", "http://47.97.18.183:8002/auth/login", true)
-    // xmlhttp.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded')
-    // xmlhttp.send('password='+usid+'&username='+psid);
-    let user_info={
+    let user_info = {
         "username": usid,
         "password": psid
     }
-    // post("http://47.97.18.183:8002/auth/login", wk, '"password"='+usid+'&"username"='+'psid');
     post("http://47.97.18.183:8002/auth/login", wk, JSON.stringify(user_info));
     // res = "ppp"
     // document.getElementById("result").innerText="登录完毕"

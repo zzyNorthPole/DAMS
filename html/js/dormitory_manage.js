@@ -77,6 +77,107 @@ function certain_dormitory(obj) {
     tmp_label_uuid.style.display = "none";
     tmp_label_uuid.innerText = obj["uuid"];
     tmp_label.appendChild(tmp_label_uuid);
+
+    var certain_dormitory_member = document.getElementById("certain_dormitory_member");
+    while (certain_dormitory_member.firstChild) certain_dormitory_member.removeChild(certain_dormitory_member.firstChild);
+    console.log(obj["members"].length);
+    for (let i = 1; i <= 4; ++i) {
+        for (let j in obj["members"]) {
+            let tmp = obj["members"][j];
+            if (tmp["bed_position"] == i) {
+        		let certain_dormitory_member_line = document.createElement('div');
+        		certain_dormitory_member_line.style = "display: flex";
+
+        		let tmp_bed = document.createElement('div');
+        		tmp_bed.style = "width: 5vw;height: 4.8vh;margin-left: 2vw;margin-top: 0.2vh;font-size: 2.5vmin;font-weight: 400;";
+        		tmp_bed.innerText = tmp["bed_position"];
+        		certain_dormitory_member_line.appendChild(tmp_bed);
+        		console.log(tmp_bed.innerText);
+
+        		let tmp_name = document.createElement('div');
+        		tmp_name.style = "width: 10vw;height: 5vh;margin-left: 2vw;font-size: 2.5vmin;font-weight: 400;";
+        		tmp_name.innerText = tmp["name"];
+        		certain_dormitory_member_line.appendChild(tmp_name);
+
+        		let tmp_department = document.createElement('div');
+        		tmp_department.style = "width: 15vw;height: 5vh;margin-left: 2vw;font-size: 2.5vmin;font-weight: 400;";
+        		tmp_department.innerText = tmp["department"];
+        		certain_dormitory_member_line.appendChild(tmp_department);
+
+                let tmp_username = document.createElement('div');
+                tmp_username.style.display = "none";
+                tmp_username.classList.add("username");
+                tmp_username.innerText = tmp["username"];
+                certain_dormitory_member_line.appendChild(tmp_username);
+
+        		let tmp_grade = document.createElement('div');
+        		tmp_grade.style = "width: 5vw;height: 4.8vh;margin-left: 2vw;margin-top: 0.2vh;font-size: 2.5vmin;font-weight: 400;";
+        		certain_dormitory_member_line.appendChild(tmp_grade);
+
+        		let tmp_state = document.createElement('div');
+        		tmp_state.style = "width: 5vw;height: 5vh;margin-left: 2vw;font-size: 2.5vmin;font-weight: 400;";
+                tmp_state.classList.add("state");
+        		if (tmp["checked_in"] == 0) tmp_state.innerText = "未入住";
+        		else tmp_state.innerText = "已入住";
+        		certain_dormitory_member_line.appendChild(tmp_state);
+
+        		let tmp_op = document.createElement('div');
+        		tmp_op.style = "width: 5vw;height: 5vh;margin-left: 2vw;font-size: 2.5vmin;font-weight: 400;color: rgba(2, 149, 255, 1);";
+        		tmp_op.classList.add("certain_dormitory_member_op");
+        		if (tmp["checked_in"] == 0) tmp_op.innerText = "入住";
+        		else tmp_op.innerText = "退宿";
+        		certain_dormitory_member_line.appendChild(tmp_op);
+
+        		certain_dormitory_member.appendChild(certain_dormitory_member_line);
+            }
+        }
+    }
+
+    var certain_dormitory_member_username_element = document.getElementById("certain_dormitory_member").getElementsByClassName("username");
+    var certain_dormitory_member_state_element = document.getElementById("certain_dormitory_member").getElementsByClassName("state");
+    var certain_dormitory_member_op_element = document.getElementById("certain_dormitory_member").getElementsByClassName("certain_dormitory_member_op");
+    let check_in_or_out_flag = [0, 0, 0, 0];
+    for (let i in certain_dormitory_member_op_element) {
+        let tmp = certain_dormitory_member_op_element[i];
+        tmp.onclick = function() {
+            if (tmp.innerText == "入住") {
+                check_in_or_out_flag[i] = 1;
+                certain_dormitory_member_state_element[i].innerText = "已入住";
+                tmp.innerText = "退宿";
+                //post("http://47.97.18.183:8002/admin/user/"+certain_dormitory_member_username_element[i].innerText+"/check-in", function(){location.reload();}, "");
+            }
+            else if (tmp.innerText == "退宿") {
+                check_in_or_out_flag[i] = -1;
+                certain_dormitory_member_state_element[i].innerText = "未入住";
+                tmp.innerText = "入住";
+                //post("http://47.97.18.183:8002/admin/user/"+certain_dormitory_member_username_element[i].innerText+"/check-out", function(){location.reload();}, "");
+            }
+        }
+    }
+    let dormitory_manage_finish = document.getElementById("dormitory_manage_finish");
+    dormitory_manage_finish.onclick = function() {
+        console.log(check_in_or_out_flag);
+        for (let i in certain_dormitory_member_op_element) {
+            if (check_in_or_out_flag[i] == 1) {
+                post("http://47.97.18.183:8002/admin/user/"+certain_dormitory_member_username_element[i].innerText+"/check-in", function(){}, "");
+            }
+            else if (check_in_or_out_flag[i] == -1) {
+                post("http://47.97.18.183:8002/admin/user/"+certain_dormitory_member_username_element[i].innerText+"/check-out", function(){}, "");
+            }
+        }
+        var main_page = document.getElementById("dormitory_manage_right_part")
+        var main_page_mask = document.getElementById("dormitory_manage_right_part_mask")
+        main_page_mask.style.display = "none"
+        main_page.style.display = "block"
+    }
+
+    let dormitory_manage_cancel = document.getElementById("dormitory_manage_cancel")
+    dormitory_manage_cancel.onclick = function() {
+        var main_page = document.getElementById("dormitory_manage_right_part")
+        var main_page_mask = document.getElementById("dormitory_manage_right_part_mask")
+        main_page_mask.style.display = "none"
+        main_page.style.display = "block"
+    }
     dormitory_manage_right_part_mask.style.display = "inline-block";
     dormitory_manage_right_part.style.display = "none";
 }
@@ -486,59 +587,6 @@ function area_content_update(obj) {
     set_dormitory_manage_add_area_onclick(obj, building_cnt, dormitory_cnt, person_cnt);
 
     set_building_manage_area_onclick(obj, building_cnt, dormitory_cnt, person_cnt);
-}
-
-function get(url, Work, uuid, flag) {
-    var xml_http = window.XMLHttpRequest ? new XMLHttpRequest() : new ActiveXObject("Microsoft.XMLHTTP");
-    xml_http.onreadystatechange = function() {
-        if (xml_http.readyState == 4 && xml_http.status == 200) {
-            var text = xml_http.responseText;
-            var obj = JSON.parse(text);
-            if (flag) Work(obj, uuid);
-            else Work(obj);
-        }
-    }
-    xml_http.open("get", url, true);
-    xml_http.withCredentials = true;
-    xml_http.send();
-}
-
-function delete_(url, Work) {
-    var xml_http = window.XMLHttpRequest ? new XMLHttpRequest() : new ActiveXObject("Microsoft.XMLHTTP");
-    xml_http.onreadystatechange = function() {
-        if (xml_http.readyState == 4 && xml_http.status == 200) {
-            Work();
-        }
-    }
-    xml_http.open("delete", url, true);
-    xml_http.withCredentials = true;
-    xml_http.send();
-}
-
-function post(url, Work, form) {
-    var xml_http = window.XMLHttpRequest ? new XMLHttpRequest() : new ActiveXObject("Microsoft.XMLHTTP");
-    xml_http.onreadystatechange = function() {
-        if (xml_http.readyState == 4 && xml_http.status == 200) {
-            Work();
-        }
-    }
-    xml_http.open("post", url, true);
-    xml_http.withCredentials = true;
-    xml_http.setRequestHeader("Content-Type", "application/json");
-    xml_http.send(form);
-}
-
-function put(url, Work, form) {
-    var xml_http = window.XMLHttpRequest ? new XMLHttpRequest() : new ActiveXObject("Microsoft.XMLHTTP");
-    xml_http.onreadystatechange = function() {
-        if (xml_http.readyState == 4 && xml_http.status == 200) {
-            Work();
-        }
-    }
-    xml_http.open("put", url, true);
-    xml_http.withCredentials = true;
-    xml_http.setRequestHeader("Content-Type", "application/json");
-    xml_http.send(form);
 }
 
 get("http://47.97.18.183:8002/admin/building", area_content_update, "", 0);

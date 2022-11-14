@@ -51,16 +51,7 @@ load()
 function load(){
     get("http://47.97.18.183:8002/user/", wk)
     
-    var inner="<div style=\"width: 90vw; height: 25vh; margin-left: 0vw; margin-top: 0vh; display: flex;\">" +
-        "<img src=\"png/swt.jpg\" style=\"width: 10vw; height: 20vh; margin-left: 5vw; margin-top: 5vh; float: left;\">" +
-        "<div style=\"width: 78vw; margin-left: 0vw; margin-top: 0vh;font-size: 20pt;\">" +
-        "<div style=\"font-size: 5vmin;margin-left: 4vw;margin-top: 5vh; font-weight: 600;\">" +
-        info["name"] + "</div>" +
-        "<div style=\"font-size: 4vmin;margin-left: 4vw;margin-top: 2vh;\">"+
-        info["department"] + "</div>" +
-        "</div>" +
-        "</div>" +
-        "</div>" +
+    var inner=
 
     "<div style=\"width: 85vw; height: 30vh; margin-left: 5vw; margin-top: 2vh;\">" +
     "<div style=\"width: 10vw; height: 5vh; font-size: 2.5vmin; font-weight: 600;\">" +
