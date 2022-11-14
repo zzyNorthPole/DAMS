@@ -32,6 +32,7 @@ function post(url, Work, form) {
     }
     xml_http.open("post", url, true);
     xml_http.setRequestHeader("Content-Type", "application/json");
+    xml_http.withCredentials = true;
     xml_http.send(form);
 }
 
