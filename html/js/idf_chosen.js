@@ -1,5 +1,5 @@
 function idf_chosen(obj) {
-    if (obj == 4) {
+    if (obj >= 3) {
         document.getElementById("admin_type_left_side").style.display = "block";
         document.getElementById("user_type_left_side").style.display = "none";
     }
