@@ -1,6 +1,6 @@
 var left_side = document.getElementsByClassName("left_side");
 var right_side = document.getElementsByClassName("right_side");
-var flag = [0, 0, 0, 0, 0, 0];
+var flag = [0, 0, 0, 0, 0, 0, 0];
 for (let i = 0; i < left_side.length; i++) {
     let tmp_i = left_side[i];
     tmp_i.onmouseover = function() {

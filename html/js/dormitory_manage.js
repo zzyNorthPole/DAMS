@@ -89,7 +89,7 @@ function dormitory_update(obj, uuid) {
     var tmp_line_element = document.getElementById("dormitory_manage_right_part_lines");
     while (tmp_line_element.firstChild)
         tmp_line_element.removeChild(tmp_line_element.firstChild);
-    
+    console.log(obj);
     for (var i in obj) {
         var tmp_label = document.createElement('div');
         tmp_label.style = "width: 5vw;height: 5vh;margin-left: 2.5vw;margin-right: 0vw;margin-top: 1vh;font-size: 2.5vmin;font-weight: 400;float: left;";
@@ -149,7 +149,7 @@ function dormitory_update(obj, uuid) {
             tmp.style.fontWeight = 400
         }
         tmp.onclick = function() {
-            get("http://47.97.18.183:8002/dormitory/"+tmp_uuid.innerText+"?building="+uuid, certain_dormitory);
+            get("http://47.97.18.183:8002/admin/dormitory/"+tmp_uuid.innerText+"?building="+uuid, certain_dormitory);
         }
     }
     for (var i in tmp_line_delete_element) {
@@ -162,7 +162,7 @@ function dormitory_update(obj, uuid) {
             tmp.style.fontWeight = 400
         }
         tmp.onclick = function() {
-            delete_("http://47.97.18.183:8002/dormitory/"+tmp_uuid.innerText+"?building="+uuid, dormitory_delete);
+            delete_("http://47.97.18.183:8002/admin/dormitory/"+tmp_uuid.innerText+"?building="+uuid, dormitory_delete);
         }
     }
 }
@@ -170,8 +170,8 @@ function dormitory_update(obj, uuid) {
 function set_certain_building_onclick(tmp_down_txt, uuid) {
     document.getElementById("building_bottom").innerHTML = tmp_down_txt.innerHTML;
     document.getElementById("table_building_building").innerHTML = tmp_down_txt.innerHTML;
-    get("http://47.97.18.183:8002/building/"+uuid.innerText, building_table_update, "", 0);
-    get("http://47.97.18.183:8002/dormitory?building="+uuid.innerText, dormitory_update, uuid.innerText, 1);
+    get("http://47.97.18.183:8002/admin/building/"+uuid.innerText, building_table_update, "", 0);
+    get("http://47.97.18.183:8002/admin/dormitory?building="+uuid.innerText, dormitory_update, uuid.innerText, 1);
 }
 
 function set_certain_dormitory_manage_add_label_onclick(tmp_down_txt, uuid) {
@@ -395,7 +395,7 @@ function set_certain_building_manage_area_onclick(obj, tmp_down_txt) {
             tmp.style.fontWeight = 400;
         }
         tmp.onclick = function() {
-            delete_("http://47.97.18.183:8002/building/"+tmp_uuid.innerText, building_delete);
+            delete_("http://47.97.18.183:8002/admin/building/"+tmp_uuid.innerText, building_delete);
         }
     }
 }
@@ -499,6 +499,7 @@ function get(url, Work, uuid, flag) {
         }
     }
     xml_http.open("get", url, true);
+    xml_http.withCredentials = true;
     xml_http.send();
 }
 
@@ -510,6 +511,7 @@ function delete_(url, Work) {
         }
     }
     xml_http.open("delete", url, true);
+    xml_http.withCredentials = true;
     xml_http.send();
 }
 
@@ -521,11 +523,25 @@ function post(url, Work, form) {
         }
     }
     xml_http.open("post", url, true);
+    xml_http.withCredentials = true;
     xml_http.setRequestHeader("Content-Type", "application/json");
     xml_http.send(form);
 }
 
-get("http://47.97.18.183:8002/building", area_content_update, "", 0);
+function put(url, Work, form) {
+    var xml_http = window.XMLHttpRequest ? new XMLHttpRequest() : new ActiveXObject("Microsoft.XMLHTTP");
+    xml_http.onreadystatechange = function() {
+        if (xml_http.readyState == 4 && xml_http.status == 200) {
+            Work();
+        }
+    }
+    xml_http.open("put", url, true);
+    xml_http.withCredentials = true;
+    xml_http.setRequestHeader("Content-Type", "application/json");
+    xml_http.send(form);
+}
+
+get("http://47.97.18.183:8002/admin/building", area_content_update, "", 0);
 
 var table_area_manage = document.getElementById("table_area_manage");
 table_area_manage.onclick = function() {
@@ -568,8 +584,8 @@ building_manage_add_finish.onclick = function() {
         "label": building_manage_add_label,
         "sex": building_manage_add_sex,
         "comment": building_manage_add_comment
-    }
-    post("http://47.97.18.183:8002/building", building_manage_add_form_clear, JSON.stringify(tmp));
+    };
+    post("http://47.97.18.183:8002/admin/building", building_manage_add_form_clear, JSON.stringify(tmp));
 }
 
 var building_manage_add_cancel = document.getElementById("building_manage_add_cancel");
@@ -604,7 +620,7 @@ dormitory_manage_add_finish.onclick = function() {
         "label": dormitory_manage_add_id,
         "total_beds": dormitory_manage_add_beds
     }
-    post("http://47.97.18.183:8002/dormitory?building="+dormitory_manage_add_uuid, dormitory_manage_add_form_clear, JSON.stringify(tmp));
+    post("http://47.97.18.183:8002/admin/dormitory?building="+dormitory_manage_add_uuid, dormitory_manage_add_form_clear, JSON.stringify(tmp));
 }
 
 var dormitory_manage_add_cancel = document.getElementById("dormitory_manage_add_cancel");
