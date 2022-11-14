@@ -15,7 +15,7 @@ function students_information_update(obj, flag) {
 
         var tmp_user_type_str = document.createElement('div');
         tmp_user_type_str.style = "width: 10vw;height: 5vh;margin-left: 0vw;font-size: 2.7vmin;float: left;";
-        tmp_user_type_str.innerText = obj[i]["user_type_str"];
+        tmp_user_type_str.innerText = anti_query_user_type(obj[i]["user_type_str"]);
         tmp_line_element.appendChild(tmp_user_type_str);
 
         var tmp_username = document.createElement('div');
@@ -104,12 +104,12 @@ function person_manage_type_content_update(obj) {
             let tmp_department = document.getElementById("person_manage_department_bottom").innerText;
             for (let j in full_student_information) {
                 if (tmp_department == "") {
-                    if (full_student_information[j]["user_type_str"] == tmp.innerText || tmp.innerText == "") {
+                    if (anti_query_user_type(full_student_information[j]["user_type_str"]) == tmp.innerText || tmp.innerText == "") {
                         tmp_obj.push(full_student_information[j]);
                     }
                 }
                 else {
-                    if ((full_student_information[j]["user_type_str"] == tmp.innerText || tmp.innerText == "") && full_student_information[j]["department"] == tmp_department) {
+                    if ((anti_query_user_type(full_student_information[j]["user_type_str"]) == tmp.innerText || tmp.innerText == "") && full_student_information[j]["department"] == tmp_department) {
                         tmp_obj.push(full_student_information[j]);
                     }
                 }
@@ -137,14 +137,13 @@ function person_manage_department_content_update(obj) {
             let tmp_obj = [];
             let tmp_type = document.getElementById("person_manage_type_bottom").innerText;
             for (let j in full_student_information) {
-                // console.log(full_student_information);
                 if (tmp_type == "") {
                     if (full_student_information[j]["department"] == tmp.innerText || tmp.innerText == "") {
                         tmp_obj.push(full_student_information[j]);
                     }
                 }
                 else {
-                    if ((full_student_information[j]["department"] == tmp.innerText || tmp.innerText == "") && full_student_information[j]["user_type_str"] == tmp_type) {
+                    if ((full_student_information[j]["department"] == tmp.innerText || tmp.innerText == "") && anti_query_user_type(full_student_information[j]["user_type_str"]) == tmp_type) {
                         tmp_obj.push(full_student_information[j]);
                     }
                 }
@@ -176,7 +175,7 @@ person_manage_search.onclick = function() {
     for (let i in full_student_information) {
         let tmp = full_student_information[i];
         if (
-            (tmp_type == "" || tmp["user_type_str"] == tmp_type) && 
+            (tmp_type == "" || anti_query_user_type(tmp["user_type_str"]) == tmp_type) && 
             (tmp_department == "" || tmp["department"] == tmp_department) && 
             (tmp["name"] == tmp_name_or_username || tmp["username"] == tmp_name_or_username)
         ){
@@ -210,8 +209,13 @@ function query_user_type(text) {
     else if (text == "教职工") return 2;
     else if (text == "楼栋管理员") return 3;
     else if (text == "后勤管理员") return 4;
-    else if (text == "系统管理员") return 5;
-    else return 0;
+}
+
+function anti_query_user_type(text) {
+    if (text == 1) return "学生";
+    else if (text == 2) return "教职工";
+    else if (text == 3) return "楼栋管理员";
+    else if (text == 4) return "后勤管理员";
 }
 person_manage_add_finish.onclick = function() {
     person_manage_add_person.style.display = "none";

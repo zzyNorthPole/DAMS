@@ -13,7 +13,9 @@ repair_manage_finish.onclick = function() {
     var tmp_uuid = document.getElementById("repair_manage_uuid").innerText;
     var tmp_student_username = document.getElementById("repair_manage_student_username").innerText;
     var tmp_repairman_username = document.getElementById("repair_manage_repairman_username").innerText;
+    var tmp_repair_manage_building_label = document.getElementById("repair_manage_building_label").innerText;
     let tmp = {
+        "building_label": tmp_repair_manage_building_label,
         "category": tmp_category,
         "comment": tmp_comment,
         "repairman_username": tmp_repairman_username,
@@ -36,6 +38,9 @@ function set_repair_manage_mask(obj, uuid) {
     document.getElementById("repair_manage_student_username").innerText = obj["student_username"];
     document.getElementById("repair_manage_repairman_username").innerText = obj["repairman_username"];
     document.getElementById("repair_manage_uuid").innerText = uuid;
+}
+function repair_manage_delete() {
+    location.reload();
 }
 function repair_information_update(obj) {
     console.log(obj);
@@ -132,7 +137,7 @@ function repair_information_update(obj) {
             tmp.style.fontWeight = 400;
         }
         tmp.onclick = function() {
-
+            delete_("http://47.97.18.183:8002/admin/repair/"+tmp_uuid_element[i].innerText, repair_manage_delete);
         }
     }
 }
@@ -156,6 +161,7 @@ function repair_manage_add_form_clear() {
 
 var repair_manage_add_finish = document.getElementById("repair_manage_add_finish");
 repair_manage_add_finish.onclick = function() {
+    var repair_manage_add_building_label = document.getElementById("repair_manage_add_building_label").value;
     var repair_manage_add_student_username = document.getElementById("repair_manage_add_student_username").value;
     var repair_manage_add_repairman_username = document.getElementById("repair_manage_add_repairman_username").value;
     var repair_manage_add_category = document.getElementById("repair_manage_add_category").value;
@@ -166,7 +172,8 @@ repair_manage_add_finish.onclick = function() {
         "comment": repair_manage_add_comment,
         "repairman_username": repair_manage_add_repairman_username,
         "state": repair_manage_add_state,
-        "student_username": repair_manage_add_student_username
+        "student_username": repair_manage_add_student_username,
+        "building_label": repair_manage_add_building_label
     };
     repair_manage_add_repair.style.display = "none";
     repair_manage_main_page.style.display = "block";
