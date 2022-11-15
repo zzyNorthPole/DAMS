@@ -204,7 +204,7 @@ function dormitory_update(obj, uuid) {
 
         var tmp_rep = document.createElement('div');
         tmp_rep.style = "width: 5vw;height: 5vh;margin-left: 1vw;margin-right: 2.5vw;margin-top: 1vh;font-size: 2.5vmin;font-weight: 400;float: left;";
-        tmp_rep.innerText = obj[i]["rep_name"];
+        tmp_rep.innerText = typeof(obj[i]["member_names"][0]) == "undefined" ? "" : obj[i]["member_names"][0];
         tmp_line_element.appendChild(tmp_rep);
 
         var tmp_member = document.createElement('div');
