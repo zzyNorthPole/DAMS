@@ -59,9 +59,9 @@ function building_table_update(obj) {
             "table_building_persons"
         ],
         [
-            0,
+            3,
             obj["total_dormitories"],
-            0
+            obj["assigned_beds"]
         ]
     );
 }
@@ -522,8 +522,8 @@ function area_content_update(obj) {
         for (let j = 0; j < area.length; ++j) {
             if (area[j] == obj[i]["area"]) tmp = 1, tmp_id = j;
         }
-        if (tmp == 0) area.push(obj[i]["area"]), building_cnt.push(1), dormitory_cnt.push(Number(obj[i]["total_dormitories"])), person_cnt.push(0);
-        else building_cnt[tmp_id] += 1, dormitory_cnt[tmp_id] += Number(obj[i]["total_dormitories"]);
+        if (tmp == 0) area.push(obj[i]["area"]), building_cnt.push(1), dormitory_cnt.push(Number(obj[i]["total_dormitories"])), person_cnt.push(obj[i]["assigned_beds"]);
+        else building_cnt[tmp_id] += 1, dormitory_cnt[tmp_id] += Number(obj[i]["total_dormitories"]), person_cnt[tmp_id] += Number(obj[i]["assigned_beds"]);
     }
 
     build_content(
