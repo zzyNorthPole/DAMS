@@ -112,6 +112,7 @@ function certain_dormitory(obj) {
 
         		let tmp_grade = document.createElement('div');
         		tmp_grade.style = "width: 5vw;height: 4.8vh;margin-left: 2vw;margin-top: 0.2vh;font-size: 2.5vmin;font-weight: 400;";
+                tmp_grade.innerText = "2020";
         		certain_dormitory_member_line.appendChild(tmp_grade);
 
         		let tmp_state = document.createElement('div');
