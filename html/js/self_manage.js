@@ -44,7 +44,13 @@ function self_manage_update(obj) {
             "gaming": query_person_manage_favorite_information_game(self_manage_favorite_information_game.value),
             "sleeping_time": query_person_manage_favorite_information_time(self_manage_favorite_information_bottom.innerText)
         };
-        post("http://47.97.18.183:8002/user/preference", function(){location.reload();}, JSON.stringify(tmp_favorite));
+        post("http://47.97.18.183:8002/user/preference", self_manage_form_clear, JSON.stringify(tmp_favorite));
     }
 }
 get("http://47.97.18.183:8002/user", self_manage_update);
+
+function self_manage_form_clear() {
+    document.getElementById("self_manage_favorite_information_game").value = "";
+    document.getElementById("self_manage_favorite_information_temprature").value = "";
+    location.reload();
+}

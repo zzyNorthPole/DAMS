@@ -14,6 +14,23 @@ function query_person_manage_favorite_information_time(text) {
     else if (text == "0:00-1:00") return 4;
     else if (text == "1:00之后") return 5;
 }
+
+function query_person_manage_checkedin(assigned, checked_in) {
+    if (assigned == 0) return "未分配";
+    else {
+        if (checked_in == 0) return "未入住";
+        else return "已入住";
+    }
+}
+
+function query_person_manage_building_and_dormitory(building, dormitory) {
+    if (building == "null") return "无"
+    else {
+        if (dormitory == "null") return "无"
+        else return building + dormitory;
+    }
+}
+
 function person_manage_mask_update(obj) {
     document.getElementById("person_manage_main_information_name").innerText = obj["name"];
     document.getElementById("person_manage_main_information_department").innerText = obj["department"];
@@ -87,12 +104,12 @@ function students_information_update(obj, flag) {
 
         var tmp_label = document.createElement('div');
         tmp_label.style = "width: 15vw;height: 5vh;margin-left: 0vw;font-size: 2.7vmin;float: left;";
-        tmp_label.innerText = String(obj[i]["building_label"]) + String(obj[i]["dormitory_label"]);
+        tmp_label.innerText = query_person_manage_building_and_dormitory(String(obj[i]["building_label"]), String(obj[i]["dormitory_label"]));
         tmp_line_element.appendChild(tmp_label);
 
         var tmp_check_in = document.createElement('div');
         tmp_check_in.style = "width: 8vw;height: 5vh;margin-left: 0vw;font-size: 2.7vmin;float: left;";
-        tmp_check_in.innerText = obj[i]["check_in"];
+        tmp_check_in.innerText = query_person_manage_checkedin(obj[i]["assigned"], obj[i]["checked_in"]);
         tmp_line_element.appendChild(tmp_check_in);
 
         var tmp_look = document.createElement('div');
