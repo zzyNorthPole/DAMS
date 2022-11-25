@@ -15,14 +15,6 @@ function change_information_update_user(obj) {
         tmp_name.appendChild(tmp_name_child);
         tmp_line_element.appendChild(tmp_name);
 
-        var tmp_new_dormitory_label = document.createElement('div');
-        tmp_new_dormitory_label.style = "width: 15vw;height: 5vh;margin-left: 0vw;font-size: 2.7vmin;float: left;";
-        var tmp_new_dormitory_label_child = document.createElement('div');
-        tmp_new_dormitory_label_child.style = "margin-left: 2vw;margin-right: 0.5vw;margin-top: 0.5vh;margin-bottom: 0.5vh;text-align: left;";
-        tmp_new_dormitory_label_child.innerText = tmp["new_dormitory_label"];
-        tmp_new_dormitory_label.appendChild(tmp_new_dormitory_label_child);
-        tmp_line_element.appendChild(tmp_new_dormitory_label);
-
         var tmp_original_dormitory_label = document.createElement('div');
         tmp_original_dormitory_label.style = "width: 13vw;height: 5vh;margin-left: 0vw;font-size: 2.7vmin;float: left;";
         var tmp_original_dormitory_label_child = document.createElement('div');
@@ -30,6 +22,14 @@ function change_information_update_user(obj) {
         tmp_original_dormitory_label_child.innerText = tmp["original_dormitory_label"];
         tmp_original_dormitory_label.appendChild(tmp_original_dormitory_label_child);
         tmp_line_element.appendChild(tmp_original_dormitory_label);
+        
+        var tmp_new_dormitory_label = document.createElement('div');
+        tmp_new_dormitory_label.style = "width: 15vw;height: 5vh;margin-left: 0vw;font-size: 2.7vmin;float: left;";
+        var tmp_new_dormitory_label_child = document.createElement('div');
+        tmp_new_dormitory_label_child.style = "margin-left: 2vw;margin-right: 0.5vw;margin-top: 0.5vh;margin-bottom: 0.5vh;text-align: left;";
+        tmp_new_dormitory_label_child.innerText = tmp["new_dormitory_label"];
+        tmp_new_dormitory_label.appendChild(tmp_new_dormitory_label_child);
+        tmp_line_element.appendChild(tmp_new_dormitory_label);
 
         var tmp_reason = document.createElement('div');
         tmp_reason.style = "width: 24vw;height: 5vh;margin-left: 0vw;font-size: 2.7vmin;float: left;";
